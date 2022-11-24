@@ -14,3 +14,6 @@
 
 
 - run compile and then run `cargo run`
+
+
+- run test `cargo test`, or with println `cargo test -- --nocapture`

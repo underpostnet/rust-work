@@ -4,6 +4,9 @@
 - https://doc.rust-lang.org/cargo/getting-started/first-steps.html
 
 
+- https://doc.rust-lang.org/stable/rust-by-example/
+
+
 - https://docs.rs/ggez/latest/ggez/
 
 

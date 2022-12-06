@@ -1,4 +1,5 @@
 use ggez;
+use ggez::conf::WindowMode;
 use ggez::{ graphics, Context, GameResult, timer };
 use ggez::event::{ self, EventHandler, MouseButton };
 use ggez::nalgebra as na;
@@ -35,16 +36,28 @@ impl CircleObject {
 
 struct MainState {
     circles: Vec<CircleObject>,
-    text: graphics::Text,
+    version: graphics::Text,
 }
 
 impl MainState {
     pub fn new(ctx: &mut Context) -> GameResult<MainState> {
+      
+        const WIDTH: f32 = 350.0;
+        const HEIGHT: f32 = 350.0;
+        let window_mode = WindowMode {
+            width: WIDTH,
+            height: HEIGHT,
+            resizable: true,
+            ..Default::default()
+        };
+        let _result = graphics::set_mode(ctx, window_mode);
+        graphics::set_screen_coordinates(ctx, graphics::Rect{x: 0.0, y: 0.0, w: WIDTH, h: HEIGHT}).unwrap();
+
         let font = graphics::Font::new(ctx, "/PressStart2P.ttf")?;
-        let text = graphics::Text::new(("underpost.net \n on Rust", font, 30.0));
+        let version = graphics::Text::new(("Game-Work \n on Rust", font, 10.0));
         let main_state = MainState {
             circles: Vec::new(),
-            text,
+            version,
         };
         Ok(main_state)
     }
@@ -78,7 +91,7 @@ impl EventHandler for MainState {
         }
 
         let dest_point = na::Point2::new(300.0, 300.0);
-        graphics::draw(_ctx, &self.text, (dest_point,))?;
+        graphics::draw(_ctx, &self.version, (dest_point,))?;
 
         graphics::present(_ctx)?;
         Ok(())

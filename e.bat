@@ -1,7 +1,7 @@
 @echo off
 
 
-:: cargo run
+cargo run
 
 
-cargo test -- --nocapture
+:: cargo test -- --nocapture

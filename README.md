@@ -4,6 +4,9 @@
 - https://doc.rust-lang.org/cargo/getting-started/first-steps.html
 
 
+- https://docs.rs/ggez/latest/ggez/
+
+
 - https://github.com/ggez/ggez
 
 
